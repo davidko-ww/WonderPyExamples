@@ -42,19 +42,20 @@ class MyClass(object):
             print(u"%s cannot drive! try a different example." % (robot.name))
             return
 
-        print(u"%s turning body around to the left." % (robot.name))
-        # robot.cmds.body.do_turn(180, 200)
-        robot.cmds.body.stage_wheel_speeds(-10, 10)
-
-        time.sleep(5)
-
         print(u"%s driving forward at 10cm/s." % (robot.name))
         # robot.cmds.body.do_forward(20, 10)
         robot.cmds.body.stage_wheel_speeds(20, 20)
+
+        time.sleep(5)
+
+        print(u"%s turning body around to the left." % (robot.name))
+        # robot.cmds.body.do_turn(180, 200)
+        robot.cmds.body.stage_wheel_speeds(-10, 10)
 
         time.sleep(5)
         robot.cmds.body.stage_wheel_speeds(0, 0)
 
 
 if __name__ == "__main__":
-    WonderPy.core.wwMain.start(MyClass(), ws_uri='ws://localhost:8989')
+    # WonderPy.core.wwMain.start(MyClass(), ws_uri='ws://slime.local:8989')
+    WonderPy.core.wwMain.start(MyClass())
